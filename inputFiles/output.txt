@@ -1,0 +1,37 @@
+ Instruction                Fetch       Issue       Read        Execute     Write_Back  RAW  WAW  Struc
+ LI R1 16                   13          14          15          16          17          N      N      N    
+ LI R2 296                  14          18          19          20          21          N      N      Y    
+ LI R4 256                  18          22          23          24          25          N      N      Y    
+ QQ: LW R3 0(R4)            22          23          26          47          48          Y      N      N    
+ L.D F1 32(R4)              35          49          50          64          65          N      N      Y    
+ L.D F2 64(R4)              49          66          67          117         118         N      N      Y    
+ ADD.D F4 F1 F2             66          67          119         121         122         Y      N      N    
+ SUB.D F5 F2 F1             67          68          119         121         122         Y      N      N    
+ MUL.D F6 F1 F5             80          81          123         153         154         Y      N      N    
+ DADD R4 R2 R1              81          82          83          84          85          N      N      N    
+ DSUBI R1 R1 8              82          86          87          88          89          N      N      Y    
+ ADD.D F7 F2 F6             86          123         155         157         158         Y      N      Y    
+ ADD.D F6 F1 F7             123         155         159         161         162         Y      Y      N    
+ SW R4 -24(R2)              155         156         157         170         171         N      N      N    
+ S.D F7 32(R4)              156         172         173         198         199         N      N      Y    
+ BNE R1 R3 QQ               172         173         174         0           0           N      N      N    
+ SW R2 0(R4)                185         200         201         222         223         N      N      Y    
+ QQ: LW R3 0(R4)            210         224         225         226         227         N      N      Y    
+ L.D F1 32(R4)              224         228         229         231         232         N      N      Y    
+ L.D F2 64(R4)              228         233         234         248         249         N      N      Y    
+ ADD.D F4 F1 F2             233         234         250         252         253         Y      N      N    
+ SUB.D F5 F2 F1             234         235         250         252         253         Y      N      N    
+ MUL.D F6 F1 F5             235         236         254         284         285         Y      N      N    
+ DADD R4 R2 R1              236         237         238         239         240         N      N      N    
+ DSUBI R1 R1 8              237         241         242         243         244         N      N      Y    
+ ADD.D F7 F2 F6             241         254         286         288         289         Y      N      Y    
+ ADD.D F6 F1 F7             254         286         290         292         293         Y      Y      N    
+ SW R4 -24(R2)              286         287         288         301         302         N      N      N    
+ S.D F7 32(R4)              287         303         304         329         330         N      N      Y    
+ BNE R1 R3 QQ               303         304         305         0           0           N      N      N    
+ SW R2 0(R4)                316         331         332         345         346         N      N      Y    
+
+Total no. of access requets for instruction cache :31
+No. of instruction cache hits :29
+Total number of access requests for data cache: 12
+Number of data cache hits: 6
